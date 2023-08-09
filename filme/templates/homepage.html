@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block titulo %}
+HomePage Hashflix
+{% endblock %}
+
+{% block content %}
+    <header class="min-h-screen bg-black bg-opacity-75 bg-blend-overlay showcase border-gray-600 border-b-8 flex justify-center items-center bg-no-repeat"  style="background-image: url('{% static 'imagens/background_netflix.jpg' %}');">
+        <div class="z-10 h-full py-32 md:py-0 text-gray-100 text-center flex items-center flex-col">
+
+            <h1 class="font-semibold text-4xl md:text-5xl w-10/12 md:w-3/4 text-center">
+                Filmes e séries da Hashtag, tudo em um só lugar.
+            </h1>
+            <h3 class="text-xl md:text-xl py-5">
+                Assista onde quiser. Cancele quando quiser.
+            </h3>
+            <h4 class="text-sm md:text-lg pb-3">
+                Quer começar? Coloque seu e-mail abaixo para acessar.
+            </h4>
+
+            <div class="w-full flex justify-center">
+                <div class="flex justify-center items-center w-11/12 md:w-10/12">
+                    <form method="post" class="w-5/12 justify-center">
+                        {% csrf_token %}
+                        <div class=" items-stretch rounded-md">
+                            {{ form|crispy }}
+                        </div>
+
+            <button class="bg-red-700 font-medium md:font-normal rounded-md py-2 px-3 md:px-0 rounded-br-sm rounded-tr-sm md:text-2xl mt-3 " type="submit">
+                <span>
+                    Acessar
+                </span>
+                <ion-icon name="chevron-forward-outline" class="text-2xl"></ion-icon>>
+            </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+     <section class='flex flex-col md:flex-row items-center border-gray-900 border-b-8' style="min-height: 70vh;">
+        <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left p-5 md:p-10">
+            <h2 class="md:text-5xl text-4xl font-semibold mb-4">
+                Tudo em um só lugar
+            </h2>
+            <h5 class="md:text-xl text-lg">
+                O melhor da Hastag Trenaimentos e Hashtag Programações em um só lugar.
+            </h5>
+        </div>
+        <div class='md:w-1/4 flex flex flex-nowrap justify-end items-center opacity-80'>
+            <img src="{% static 'imagens/logo-hash-oficial.png' %}" class="w-8/12" alt="">
+        </div>
+    </section>
+
+    <section class='flex flex-col md:flex-row items-center border-gray-900 border-b-8' style="min-height: 70vh;">
+        <div class='md:w-1/2 flex justify-center items-center opacity-50 '>
+
+                <img src="{% static 'imagens/python.png' %}" class="w-8/12" alt="">
+
+        </div>
+
+        <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left p-5 md:p-10">
+            <h2 class="md:text-5xl text-4xl font-semibold mb-4">
+                Aprenda várias verramentas
+            </h2>
+            <h5 class="md:text-xl text-lg">
+                 Saía na frente no mercado de trabalho dominando ferramentas como Python, JavaScript, Excel e muito mais.
+            </h5>
+        </div>
+
+    </section>
+
+     <section class='flex flex-col md:flex-row items-center border-gray-900 border-b-8' style="min-height: 70vh;">
+        <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left p-5 md:p-10 ">
+            <h2 class="md:text-5xl text-4xl font-semibold mb-4">
+                Acesse em qualquer dispositivo
+            </h2>
+            <h5 class="md:text-xl text-lg">
+                 Assista quando quiser na hora que quiser
+            </h5>
+        </div>
+        <div class='md:w-1/2 flex justify-center items-center'>
+            <img src="{% static 'imagens/tv.png' %}" class="w-8/12" alt="">
+        </div>
+    </section>
+
+
+    <footer class=" px-5 py-10 ">
+        <ul class="flex justify-between items-center">
+
+            <li>&copy; 2021</li>
+            <li> Feito com Python (Django)</li>
+            <li>Hashtag</li>
+        </ul>
+    </footer>
+
+
+{% endblock %}
